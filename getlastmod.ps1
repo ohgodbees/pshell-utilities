@@ -1,0 +1,1 @@
+get-childitem "C:\" -recurse | where-object {$_.mode -notmatch "d"} | where-object {$_.lastwritetime -gt [datetime]::parse("11/4/14 21:10")} | format-table lastwritetime, fullname -autosize | out-file "C:\newfiles.log" -append
